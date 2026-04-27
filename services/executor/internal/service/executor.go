@@ -17,9 +17,9 @@ func NewExecuteService() *ExecuteService {
 	return &ExecuteService{}
 }
 
-func (s *ExecuteService) Execute(language, code string) (models.ExecuteResponse, error) {
+func (s *ExecuteService) Execute(language, code, input string) (models.ExecuteResponse, error) {
 	runner := runner.DockerRunner{}
-	stdout, stderr, err := runner.Run(language, code)
+	stdout, stderr, err := runner.Run(language, code, input)
 	timeout := false
 	if err != nil {
 		var execErr *exec.Error
@@ -29,7 +29,14 @@ func (s *ExecuteService) Execute(language, code string) (models.ExecuteResponse,
 		if errors.Is(err, context.DeadlineExceeded) {
 			timeout = true
 		} else {
-			return models.ExecuteResponse{}, fmt.Errorf("execution failed: %v; stderr: %s", err, stderr)
+			if stderr == "" {
+				stderr = err.Error()
+			}
+			return models.ExecuteResponse{
+				Output:  stdout,
+				Error:   stderr,
+				Timeout: false,
+			}, nil
 		}
 	}
 

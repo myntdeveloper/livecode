@@ -29,6 +29,7 @@ func (h *ExecuteHandler) Execute(c *gin.Context) {
 	var req struct {
 		Language string `json:"language"`
 		Code     string `json:"code"`
+		Input    string `json:"input"`
 	}
 	if err := c.ShouldBindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid request"})
@@ -42,7 +43,7 @@ func (h *ExecuteHandler) Execute(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "empty code"})
 		return
 	}
-	response, err := h.executeService.Execute(req.Language, req.Code)
+	response, err := h.executeService.Execute(req.Language, req.Code, req.Input)
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})

@@ -135,3 +135,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+node_modules/
+frontend/node_modules/

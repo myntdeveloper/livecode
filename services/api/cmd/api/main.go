@@ -53,12 +53,17 @@ func main() {
 	api := r.Group("/api")
 	api.GET("/auth/github", authHandler.GithubLogin)
 	api.GET("/auth/github/callback", authHandler.GithubCallback)
+	api.POST("/auth/logout", authHandler.Logout)
 
 	protected := api.Group("/")
 	protected.Use(middleware.AuthMiddleware())
-
+	protected.GET("/user/me", authHandler.GetUserById)
+	protected.PUT("/user/name", authHandler.UpdateNameAndSurname)
 	protected.POST("/rooms", roomHandler.CreateRoom)
-	protected.GET("/rooms", roomHandler.GetRoomById)
+	protected.GET("/rooms/:roomID", roomHandler.GetRoomById)
+	protected.POST("/rooms/:roomID/close", roomHandler.CloseRoom)
+	protected.POST("/rooms/:roomID/language", roomHandler.ChangeLanguageRoom)
+	protected.GET("/ws/rooms/:roomID", roomHandler.RoomWS)
 
 	log.Println("Server is started")
 	if err := r.Run(":" + conf.Port); err != nil {

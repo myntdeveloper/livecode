@@ -1,7 +1,9 @@
 package model
 
 type User struct {
-	ID        string `json:"id"`        // UUID as string
+	ID        string `json:"id"` // UUID as string
+	Name      string `json:"name"`
+	Surname   string `json:"surname"`
 	GithubID  int64  `json:"github_id"` // BIGINT
 	Login     string `json:"login"`     // login
 	AvatarURL string `json:"avatar_url"`

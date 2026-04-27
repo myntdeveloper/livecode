@@ -6,4 +6,5 @@ type Room struct {
 	Code      string `json:"code"`
 	Language  string `json:"language"`
 	CreatedAt string `json:"created_at"`
+	Status    string `json:"status"`
 }

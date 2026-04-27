@@ -109,3 +109,12 @@ func (s *AuthService) CreateJWT(userID string) (string, error) {
 func (s *AuthService) UpsertUser(g *github.GithubUser) (*model.User, error) {
 	return s.userRepo.Upsert(g)
 }
+
+func (s *AuthService) GetUserById(userID string) (*model.User, error) {
+	return s.userRepo.GetByID(userID)
+}
+
+func (s *AuthService) UpdateNameAndSurnameUser(u *model.User) (*model.User, error) {
+	// Updates the user name and surname using the userRepo
+	return s.userRepo.UpdateNameAndSurname(u.ID, u.Name, u.Surname)
+}

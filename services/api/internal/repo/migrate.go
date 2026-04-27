@@ -8,6 +8,8 @@ func Migrate(db *sql.DB) error {
 		id UUID PRIMARY KEY,
 		github_id TEXT UNIQUE,
 		login TEXT,
+		name TEXT NULL,
+		surname TEXT NULL,
 		avatar_url TEXT,
 		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	);
@@ -16,6 +18,7 @@ func Migrate(db *sql.DB) error {
 		owner_id TEXT,
 		code TEXT,
 		language TEXT,
+		status TEXT,
 		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	);
 	`
