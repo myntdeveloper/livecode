@@ -9,8 +9,6 @@ A real-time collaborative coding platform with shared rooms, WebSocket sync, Git
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](#license)
 
-**Русская версия README:** [`docs/README.ru.md`](docs/README.ru.md)
-
 ## Features
 
 - Real-time collaborative code editing in rooms
@@ -109,9 +107,6 @@ livecode/
 <img width="50%" height="1280" alt="image_10" src="https://github.com/user-attachments/assets/c6921488-1031-4217-b23c-2183a2f93ecd" />
   </tr>
 </table>
-
-  - Node.js + npm
-  - PostgreSQL 15+
 
 ---
 
