@@ -20,10 +20,16 @@ A real-time collaborative coding platform with shared rooms, WebSocket sync, Git
 - Isolated code execution through a dedicated executor service
 - Multi-language UI support (EN/RU) and theme switching
 
-## Usage
+## Tech Stack
 
-### Quick Start (Docker)
+- **Frontend:** React, TypeScript, Vite, Tailwind CSS
+- **API Service:** Go, Gin, JWT, WebSocket, Swagger
+- **Executor Service:** Go, Gin, Docker-based sandbox
+- **Database:** PostgreSQL
+- **Infrastructure:** Docker Compose, Nginx
 
+
+## Quick Start (Docker)
 1. **Clone this repository**
    ```shell
    git clone https://github.com/myntdeveloper/livecode.git
@@ -31,7 +37,6 @@ A real-time collaborative coding platform with shared rooms, WebSocket sync, Git
    ```
 
 2. **Configure environment variables**
-
    Update `.env` files in:
    - `infra/.env`
    - `services/api/.env`
@@ -51,6 +56,20 @@ A real-time collaborative coding platform with shared rooms, WebSocket sync, Git
    - Executor API: `http://localhost/executor`
    - Backend Swagger: `http://localhost/swagger/index.html`
 
+## Directory Structure
+
+```text
+livecode/
+├── frontend/              # React + Vite client application
+├── services/
+│   ├── api/               # Core backend (auth, rooms, ws, user)
+│   └── executor/          # Code execution service
+├── infra/                 # Docker Compose, Nginx, infrastructure config
+├── docs/
+│   ├── README.ru.md       # Russian documentation
+│   └── screenshots/       # Project screenshots
+└── Readme.md              # Main English README
+```
 
 ## Screenshots
 
@@ -91,35 +110,6 @@ A real-time collaborative coding platform with shared rooms, WebSocket sync, Git
   </tr>
 </table>
 
-
-## Tech Stack
-
-- **Frontend:** React, TypeScript, Vite, Tailwind CSS
-- **API Service:** Go, Gin, JWT, WebSocket, Swagger
-- **Executor Service:** Go, Gin, Docker-based sandbox
-- **Database:** PostgreSQL
-- **Infrastructure:** Docker Compose, Nginx
-
-## Directory Structure
-
-```text
-livecode/
-├── frontend/              # React + Vite client application
-├── services/
-│   ├── api/               # Core backend (auth, rooms, ws, user)
-│   └── executor/          # Code execution service
-├── infra/                 # Docker Compose, Nginx, infrastructure config
-├── docs/
-│   ├── README.ru.md       # Russian documentation
-│   └── screenshots/       # Project screenshots
-└── Readme.md              # Main English README
-```
-
-## Prerequisites
-
-- Docker + Docker Compose (recommended)
-- Or for local run:
-  - Go 1.26+
   - Node.js + npm
   - PostgreSQL 15+
 
