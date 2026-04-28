@@ -1,6 +1,6 @@
 # LiveCode
 
-A real-time collaborative coding platform with shared rooms, WebSocket sync, GitHub OAuth, and sandboxed code execution.
+A pet project. Real-time collaborative coding for technical interviews — shared rooms, live sync, sandboxed execution. Just share a link and code together.
 
 [![Go](https://img.shields.io/badge/Go-1.26+-00ADD8?logo=go&logoColor=white)](https://go.dev/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=111827)](https://react.dev/)
