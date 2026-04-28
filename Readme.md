@@ -51,46 +51,46 @@ A real-time collaborative coding platform with shared rooms, WebSocket sync, Git
    - Executor API: `http://localhost/executor`
    - Backend Swagger: `http://localhost/swagger/index.html`
 
-### Local Development (without Docker)
-
-1. **Start PostgreSQL** and configure `.env` files.
-2. **Run API service**
-   ```shell
-   cd services/api
-   go run ./cmd/api
-   ```
-3. **Run Executor service**
-   ```shell
-   cd services/executor
-   go run ./cmd/executor
-   ```
-4. **Run Frontend**
-   ```shell
-   cd frontend
-   npm install
-   npm run dev
-   ```
 
 ## Screenshots
 
 ### 1) Home Page
-
-![Home Page](docs/screenshots/image_1.png)
+<img width="50%" height="1280" alt="image_1" src="https://github.com/user-attachments/assets/554282dc-0080-4961-bed3-7e9555048037" />
 
 ### 2) Auth
-![Home Page](docs/screenshots/image_2.png)
-![Home Page](docs/screenshots/image_3.png)
-
+<table>
+  <tr>
+<img width="50%" alt="image_2" src="https://github.com/user-attachments/assets/a568e3fb-93f7-46b2-abfb-e7b9515150b4" />
+<img width="50%"  alt="image_3" src="https://github.com/user-attachments/assets/f0a2b099-da58-440a-b4f4-0835e75d8719" />
+  </tr>
+</table>
 
 ### 2) Profile
-![Home Page](docs/screenshots/image_4.png)
-![Home Page](docs/screenshots/image_5.png)
+
+<table>
+  <tr>
+<img width="50%" height="1236" alt="image_4" src="https://github.com/user-attachments/assets/93205bb2-21f7-47ac-9842-813a03cceaf7" />
+<img width="50%" height="1280" alt="image_5" src="https://github.com/user-attachments/assets/df816a4a-299c-4b77-84bc-57e1d31376e2" />
+  </tr>
+</table>
 
 ### 3) Lobby examples (1, 2, 3, 4, 5)
-![Home Page](docs/screenshots/image_6.png)
-![Home Page](docs/screenshots/image_7.png)
-![Home Page](docs/screenshots/image_8.png)
-![Home Page](docs/screenshots/image_9.png)
+<table>
+  <tr>
+<img width="50%" height="1280" alt="image_6" src="https://github.com/user-attachments/assets/3162a711-13a8-40d6-9e81-95fd1d51840f" />
+<img width="50%" height="1280" alt="image_7" src="https://github.com/user-attachments/assets/8270ce37-b416-4352-9ca5-e1b172e22cd4" />
+     <table>
+  <tr>
+<img width="50%" height="1280" alt="image_8" src="https://github.com/user-attachments/assets/04f34ac3-95a8-4afe-9eec-7d9eb2b00c98" />
+<img width="50%" height="1280" alt="image_9" src="https://github.com/user-attachments/assets/3f4a68b7-2535-4fe2-a641-b58ba961c236" />
+       </tr>
+</table>
+     <table>
+  <tr>
+<img width="50%" height="1280" alt="image_10" src="https://github.com/user-attachments/assets/c6921488-1031-4217-b23c-2183a2f93ecd" />
+  </tr>
+</table>
+
 
 ## Tech Stack
 
@@ -123,6 +123,6 @@ livecode/
   - Node.js + npm
   - PostgreSQL 15+
 
-## License
+---
 
-MIT
+Built with ❤️ by **mynt**
