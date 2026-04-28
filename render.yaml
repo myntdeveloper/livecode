@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: api
+    runtime: docker
+    dockerfilePath: ./services/api/Dockerfile
+    dockerContext: ./services/api
+    envVars:
+      - key: EXECUTOR_URL
+        value: https://executor.onrender.com  
+      - key: PORT
+        value: 8000
+
+  - type: web
+    name: executor
+    runtime: docker
+    dockerfilePath: ./services/executor/Dockerfile
+    dockerContext: ./services/executor
+    envVars:
+      - key: PORT
+        value: 8001
