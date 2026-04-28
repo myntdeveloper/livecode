@@ -63,6 +63,7 @@ func main() {
 	protected.GET("/rooms/:roomID", roomHandler.GetRoomById)
 	protected.POST("/rooms/:roomID/close", roomHandler.CloseRoom)
 	protected.POST("/rooms/:roomID/language", roomHandler.ChangeLanguageRoom)
+	protected.POST("/rooms/:roomID/code", roomHandler.UpdateCodeRoom)
 	protected.GET("/ws/rooms/:roomID", roomHandler.RoomWS)
 
 	log.Println("Server is started")

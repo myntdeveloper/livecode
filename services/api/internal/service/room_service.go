@@ -65,3 +65,14 @@ func (s *RoomService) ChangeLanguage(id string, ownerID string, language string)
 	}
 	return room, nil
 }
+
+func (s *RoomService) UpdateCode(id string, code string) (*model.Room, error) {
+	room, err := s.roomRepo.UpdateCode(id, code)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return nil, ErrRoomNotFound
+		}
+		return nil, err
+	}
+	return room, nil
+}

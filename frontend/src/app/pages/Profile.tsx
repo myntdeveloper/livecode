@@ -67,7 +67,6 @@ export function Profile() {
     try {
       await logoutRequest();
     } catch {
-      // keep client-side logout as a fallback
     }
     logout();
     navigate("/auth");

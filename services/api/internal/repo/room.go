@@ -86,3 +86,21 @@ func (r *RoomRepo) ChangeLanguage(id string, ownerID string, language string) (*
 	}
 	return room, nil
 }
+
+func (r *RoomRepo) UpdateCode(id string, code string) (*model.Room, error) {
+	_, err := r.db.Exec(
+		"UPDATE rooms SET code = $1 WHERE id = $2", code, id,
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	room := &model.Room{}
+	scanErr := r.db.QueryRow(
+		"SELECT id, owner_id, code, language, created_at, status FROM rooms WHERE id = $1", id,
+	).Scan(&room.ID, &room.OwnerID, &room.Code, &room.Language, &room.CreatedAt, &room.Status)
+	if scanErr != nil {
+		return nil, scanErr
+	}
+	return room, nil
+}

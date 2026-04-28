@@ -52,3 +52,14 @@ export const changeRoomLanguage = async (roomId: string, language: string) => {
   }
   return (await res.json()) as RoomResponse;
 };
+
+export const updateRoomCode = async (roomId: string, code: string) => {
+  const res = await apiFetch(`/api/rooms/${roomId}/code`, {
+    method: "POST",
+    body: JSON.stringify({ code }),
+  });
+  if (!res.ok) {
+    throw new Error("Failed to save room code");
+  }
+  return (await res.json()) as RoomResponse;
+};

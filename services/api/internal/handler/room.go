@@ -179,6 +179,34 @@ func (h *RoomHandler) ChangeLanguageRoom(c *gin.Context) {
 	c.JSON(http.StatusOK, room)
 }
 
+func (h *RoomHandler) UpdateCodeRoom(c *gin.Context) {
+	var req struct {
+		Code string `json:"code" binding:"required"`
+	}
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "code is required"})
+		return
+	}
+
+	roomID := c.Param("roomID")
+	if roomID == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "room_id is required"})
+		return
+	}
+
+	room, err := h.roomService.UpdateCode(roomID, req.Code)
+	if err != nil {
+		if errors.Is(err, service.ErrRoomNotFound) {
+			c.JSON(http.StatusNotFound, gin.H{"error": "room not found"})
+			return
+		}
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, room)
+}
+
 var roomUpgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool { return true },
 }
